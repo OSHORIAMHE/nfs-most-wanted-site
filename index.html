@@ -71,11 +71,59 @@
       width: 100%;
       border-radius: 12px;
     }
+    .cars-animation {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      animation: slide-in 5s ease-in-out infinite alternate;
+    }
+    .cars-animation img {
+      width: 200px;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+    .cars-animation img:hover {
+      transform: scale(1.1);
+    }
+    @keyframes slide-in {
+      from {
+        transform: translateX(-20px);
+      }
+      to {
+        transform: translateX(20px);
+      }
+    }
     footer {
       background: #111;
       text-align: center;
       padding: 15px;
       margin-top: 30px;
+    }
+    .footer-links {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+    .footer-links h4 {
+      margin-bottom: 10px;
+      color: #ff6f00;
+    }
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-links ul li {
+      margin: 5px 0;
+    }
+    .footer-links ul li a {
+      color: #bbb;
+      text-decoration: none;
+    }
+    .footer-links ul li a:hover {
+      color: #fff;
     }
     @media (max-width: 768px) {
       .banner h2 {
@@ -111,25 +159,54 @@
       <img src="screenshot3.jpg" alt="Gameplay screenshot 3">
     </div>
 
+    <div class="cars-animation">
+      <img src="car1.jpg" alt="NFS Car 1">
+      <img src="car2.jpg" alt="NFS Car 2">
+      <img src="car3.jpg" alt="NFS Car 3">
+    </div>
+
     <h3 id="download">Download</h3>
     <p>Available on PC, Xbox, and PlayStation. Visit the official EA website or your preferred store to download.</p>
 
     <h3 id="contact">Contact</h3>
     <p>Created by <strong>Osho</strong><br>Email: <a href="mailto:oshooyarekhua46@gmail.com">oshooyarekhua46@gmail.com</a><br>Phone: 07052073239</p>
-
-    <h3 id="upload">How to Upload Images</h3>
-    <ol>
-      <li>Rename your images to <code>nfs-banner.jpg</code>, <code>screenshot1.jpg</code>, <code>screenshot2.jpg</code>, and <code>screenshot3.jpg</code>.</li>
-      <li>Go to <a href="https://github.com/OSHORIAMHE/nfs-most-wanted-site">your GitHub repo</a>.</li>
-      <li>Click <strong>Add file → Upload files</strong>.</li>
-      <li>Drag or choose the renamed images.</li>
-      <li>Click <strong>Commit changes</strong>.</li>
-      <li>Visit <a href="https://oshoriamhe.github.io/nfs-most-wanted-site/">your site</a> to see them live!</li>
-    </ol>
   </section>
 
   <footer>
     <p>&copy; 2025 Osho. All Rights Reserved.</p>
+    <div class="footer-links">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">Snap Inc.</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+        <li><a href="#">Report Infringement</a></li>
+      </ul>
+      <h4>Advertising</h4>
+      <ul>
+        <li><a href="#">Buy Ads</a></li>
+        <li><a href="#">Advertising Policies</a></li>
+        <li><a href="#">Political Ads Library</a></li>
+        <li><a href="#">Brand Guidelines</a></li>
+        <li><a href="#">Promotions Rules</a></li>
+      </ul>
+      <h4>Creative Tools</h4>
+      <ul>
+        <li><a href="#">Custom Creative Tools Terms</a></li>
+        <li><a href="#">Community Geofilter Terms</a></li>
+        <li><a href="#">Lens Studio Terms</a></li>
+      </ul>
+      <h4>Language</h4>
+      <p>English (US)</p>
+    </div>
   </footer>
 
 </body>
