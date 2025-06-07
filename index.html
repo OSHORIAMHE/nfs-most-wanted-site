@@ -12,12 +12,25 @@
     }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0f0f0f;
+      background-image: url('black-lamborghini.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       color: #f1f1f1;
       line-height: 1.6;
     }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
     header {
-      background: #111;
+      background: rgba(0, 0, 0, 0.8);
       padding: 20px;
       text-align: center;
     }
@@ -26,7 +39,7 @@
       font-size: 2.5rem;
     }
     nav {
-      background: #222;
+      background: rgba(17, 17, 17, 0.9);
       display: flex;
       justify-content: center;
       gap: 20px;
@@ -60,6 +73,8 @@
       padding: 30px;
       max-width: 1000px;
       margin: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
     }
     .screenshots {
       display: grid;
@@ -96,7 +111,7 @@
       }
     }
     footer {
-      background: #111;
+      background: rgba(17, 17, 17, 0.9);
       text-align: center;
       padding: 15px;
       margin-top: 30px;
@@ -169,43 +184,38 @@
     <p>Available on PC, Xbox, and PlayStation. Visit the official EA website or your preferred store to download.</p>
 
     <h3 id="contact">Contact</h3>
-    <p>Created by <strong>Osho</strong><br>Email: <a href="mailto:oshooyarekhua46@gmail.com">oshooyarekhua46@gmail.com</a><br>Phone: 07052073239</p>
+    <p><strong>Created by: Osho</strong><br><strong>Email:</strong> <a href="mailto:oshooyarekhua46@gmail.com">oshooyarekhua46@gmail.com</a><br><strong>Phone:</strong> 07052073239</p>
   </section>
 
   <footer>
     <p>&copy; 2025 Osho. All Rights Reserved.</p>
     <div class="footer-links">
-      <h4>Company</h4>
+      <h4><strong>Legal</strong></h4>
       <ul>
-        <li><a href="#">Snap Inc.</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Community</a></li>
-        <li><a href="#">Support</a></li>
+        <li><a href="#"><strong>Privacy Policy</strong></a></li>
+        <li><a href="#"><strong>Terms of Service</strong></a></li>
+        <li><a href="#"><strong>Cookie Policy</strong></a></li>
+        <li><a href="#"><strong>Report Infringement</strong></a></li>
       </ul>
-      <h4>Legal</h4>
+      <h4><strong>Advertising</strong></h4>
       <ul>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Cookie Policy</a></li>
-        <li><a href="#">Report Infringement</a></li>
+        <li><a href="#"><strong>Buy Ads</strong></a></li>
+        <li><a href="#"><strong>Advertising Policies</strong></a></li>
+        <li><a href="#"><strong>Political Ads Library</strong></a></li>
+        <li><a href="#"><strong>Brand Guidelines</strong></a></li>
+        <li><a href="#"><strong>Promotions Rules</strong></a></li>
       </ul>
-      <h4>Advertising</h4>
+      <h4><strong>Creative Tools</strong></h4>
       <ul>
-        <li><a href="#">Buy Ads</a></li>
-        <li><a href="#">Advertising Policies</a></li>
-        <li><a href="#">Political Ads Library</a></li>
-        <li><a href="#">Brand Guidelines</a></li>
-        <li><a href="#">Promotions Rules</a></li>
+        <li><a href="#"><strong>Custom Creative Tools Terms</strong></a></li>
+        <li><a href="#"><strong>Community Geofilter Terms</strong></a></li>
+        <li><a href="#"><strong>Lens Studio Terms</strong></a></li>
       </ul>
-      <h4>Creative Tools</h4>
-      <ul>
-        <li><a href="#">Custom Creative Tools Terms</a></li>
-        <li><a href="#">Community Geofilter Terms</a></li>
-        <li><a href="#">Lens Studio Terms</a></li>
-      </ul>
-      <h4>Language</h4>
-      <p>English (US)</p>
+      <h4><strong>Language</strong></h4>
+      <select name="language">
+        <option value="en" selected>English (US)</option>
+        <option value="en-uk">English (UK)</option>
+      </select>
     </div>
   </footer>
 
