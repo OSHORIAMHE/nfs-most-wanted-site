@@ -101,6 +101,8 @@
       width: 100%;
       border-radius: 12px;
     }
+
+    /* New cars animation with black cars */
     .cars-animation {
       margin-top: 40px;
       display: flex;
@@ -113,9 +115,11 @@
       width: 200px;
       border-radius: 12px;
       transition: transform 0.3s ease;
+      filter: brightness(0.9) contrast(1.1);
     }
     .cars-animation img:hover {
       transform: scale(1.1);
+      filter: brightness(1) contrast(1.2);
     }
     @keyframes slide-in {
       from {
@@ -239,7 +243,7 @@
       background-color: #ffa040;
     }
 
-    /* Contact form styles */
+    /* Contact form styles with autofill */
     .contact-form input,
     .contact-form textarea {
       width: 100%;
@@ -303,15 +307,15 @@
     <h2>Race. Evade. Conquer. Be Most Wanted.</h2>
   </div>
 
-  <!-- Game Trailer Section -->
+  <!-- Updated Game Trailer Section -->
   <section class="content" id="trailer">
     <h3>Game Trailer</h3>
     <div style="text-align:center;">
       <iframe
         width="560"
         height="315"
-        src="https://www.youtube.com/embed/5sBU7fXjZ2w"
-        title="Need for Speed Most Wanted Trailer"
+        src="https://www.youtube.com/embed/8p9JH3j9x7o"
+        title="Need for Speed Most Wanted 2012 Official Trailer"
         frameborder="0"
         allowfullscreen
         style="max-width: 100%; border-radius: 12px;"
@@ -344,10 +348,11 @@
       <img src="screenshot3.jpg" alt="Gameplay screenshot 3" />
     </div>
 
+    <!-- New cars animation with black cars from NFS Most Wanted 2012 -->
     <div class="cars-animation">
-      <img src="bugatti-veyron-black.jpg" alt="Bugatti Veyron Grand Sport Vitesse Black" />
-      <img src="lamborghini-gallardo-black.jpg" alt="Lamborghini Gallardo LP 570-4 Spyder Performante Black" />
-      <img src="lamborghini-gallardo-black-2.jpg" alt="Lamborghini Gallardo Black Variant" />
+      <img src="bugatti-veyron-black.png" alt="Bugatti Veyron Grand Sport Vitesse Black" />
+      <img src="lamborghini-gallardo-black.png" alt="Lamborghini Gallardo LP 570-4 Spyder Performante Black" />
+      <img src="porsche-cayman-black.png" alt="Porsche Cayman Black" />
     </div>
 
     <h3 id="download">Download</h3>
@@ -408,17 +413,26 @@
           action="mailto:oshooyarekhua46@gmail.com"
           method="post"
           enctype="text/plain"
+          autocomplete="on"
         >
-          <input type="text" name="name" placeholder="Your Name" required />
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            autocomplete="name"
+            required
+          />
           <input
             type="email"
             name="email"
             placeholder="Your Email"
+            autocomplete="email"
             required
           />
           <textarea
             name="message"
             placeholder="Your Message"
+            autocomplete="off"
             required
           ></textarea>
           <button type="submit">Send</button>
