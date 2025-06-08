@@ -112,120 +112,139 @@
     }
     footer {
       background: rgba(17, 17, 17, 0.9);
-      text-align: center;
-      padding: 15px;
+      padding: 40px 20px;
       margin-top: 30px;
     }
-    .footer-links {
-      margin-top: 30px;
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      transform: rotate(180deg);
-      font-size: 0.9rem;
-      color: #bbb;
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
-    .footer-links h4 {
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 30px;
+      padding: 0 15px;
+    }
+    .footer-column h4 {
       color: #ff6f00;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
     }
-    .footer-links ul {
+    .footer-column ul {
       list-style: none;
       padding: 0;
     }
-    .footer-links ul li {
-      margin: 5px 0;
+    .footer-column ul li {
+      margin: 8px 0;
     }
-    .footer-links ul li a {
+    .footer-column ul li a {
       color: #bbb;
       text-decoration: none;
+      transition: color 0.3s;
     }
-    .footer-links ul li a:hover {
+    .footer-column ul li a:hover {
       color: #fff;
     }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      font-size: 0.9rem;
+      color: #888;
+    }
     select[name="language"] {
-      transform: rotate(180deg);
+      padding: 5px;
+      margin-top: 10px;
+      background-color: #333;
+      color: #fff;
+      border: 1px solid #555;
+      border-radius: 4px;
     }
     @media (max-width: 768px) {
       .banner h2 {
         font-size: 2rem;
       }
+      .footer-column {
+        flex: 100%;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Need for Speed: Most Wanted 2012</h1>
   </header>
-
   <nav>
     <a href="#">Home</a>
     <a href="#screenshots">Screenshots</a>
     <a href="#download">Download</a>
     <a href="#contact">Contact</a>
   </nav>
-
   <div class="banner" style="background-image: url('nfs-banner.jpg');">
     <h2>Race. Evade. Conquer. Be Most Wanted.</h2>
   </div>
-
   <section class="content">
     <p>Experience the thrill of the chase and the adrenaline of street racing in <strong>Need for Speed: Most Wanted</strong>. Built for speed and freedom in an open world filled with shortcuts, jumps, and destructible environments.</p>
-
     <h3 id="screenshots">Screenshots</h3>
     <div class="screenshots">
       <img src="screenshot1.jpg" alt="Gameplay screenshot 1">
       <img src="screenshot2.jpg" alt="Gameplay screenshot 2">
       <img src="screenshot3.jpg" alt="Gameplay screenshot 3">
     </div>
-
     <div class="cars-animation">
       <img src="car1.jpg" alt="NFS Car 1">
       <img src="car2.jpg" alt="NFS Car 2">
       <img src="car3.jpg" alt="NFS Car 3">
     </div>
-
     <h3 id="download">Download</h3>
     <p>Available on PC, Xbox, and PlayStation. Visit the official EA website or your preferred store to download.</p>
-
     <h3 id="contact">Contact</h3>
     <p><strong>Created by: <strong>OSHO</strong></strong><br><strong>Email:</strong> <a href="mailto:oshooyarekhua46@gmail.com">oshooyarekhua46@gmail.com</a><br><strong>Phone:</strong> <strong>07052073239</strong></p>
   </section>
-
   <footer>
-    <p>&copy; 2025 Osho. All Rights Reserved.</p>
-    <div class="footer-links">
-      <h4><strong>Legal</strong></h4>
-      <ul>
-        <li><a href="#"><strong>Privacy Policy</strong></a></li>
-        <li><a href="#"><strong>Terms of Service</strong></a></li>
-        <li><a href="#"><strong>Cookie Policy</strong></a></li>
-        <li><a href="#"><strong>Report Infringement</strong></a></li>
-      </ul>
-      <h4><strong>Advertising</strong></h4>
-      <ul>
-        <li><a href="#"><strong>Buy Ads</strong></a></li>
-        <li><a href="#"><strong>Advertising Policies</strong></a></li>
-        <li><a href="#"><strong>Political Ads Library</strong></a></li>
-        <li><a href="#"><strong>Brand Guidelines</strong></a></li>
-        <li><a href="#"><strong>Promotions Rules</strong></a></li>
-      </ul>
-      <h4><strong>Creative Tools</strong></h4>
-      <ul>
-        <li><a href="#"><strong>Custom Creative Tools Terms</strong></a></li>
-        <li><a href="#"><strong>Community Geofilter Terms</strong></a></li>
-        <li><a href="#"><strong>Lens Studio Terms</strong></a></li>
-      </ul>
-      <h4><strong>Language</strong></h4>
-      <select name="language">
-        <option value="en" selected>English (US)</option>
-        <option value="en-uk">English (UK)</option>
-      </select>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4><strong>Legal</strong></h4>
+        <ul>
+          <li><a href="#"><strong>Privacy Policy</strong></a></li>
+          <li><a href="#"><strong>Terms of Service</strong></a></li>
+          <li><a href="#"><strong>Cookie Policy</strong></a></li>
+          <li><a href="#"><strong>Report Infringement</strong></a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4><strong>Advertising</strong></h4>
+        <ul>
+          <li><a href="#"><strong>Buy Ads</strong></a></li>
+          <li><a href="#"><strong>Advertising Policies</strong></a></li>
+          <li><a href="#"><strong>Political Ads Library</strong></a></li>
+          <li><a href="#"><strong>Brand Guidelines</strong></a></li>
+          <li><a href="#"><strong>Promotions Rules</strong></a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4><strong>Creative Tools</strong></h4>
+        <ul>
+          <li><a href="#"><strong>Custom Creative Tools Terms</strong></a></li>
+          <li><a href="#"><strong>Community Geofilter Terms</strong></a></li>
+          <li><a href="#"><strong>Lens Studio Terms</strong></a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4><strong>Language</strong></h4>
+        <select name="language">
+          <option value="en" selected>English (US)</option>
+          <option value="en-uk">English (UK)</option>
+        </select>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Osho. All Rights Reserved.</p>
     </div>
   </footer>
-
 </body>
 </html>
