@@ -59,7 +59,7 @@
       opacity: 0.7;
       animation: particleMove linear infinite;
     }
-    /* Generate multiple particles with different delays and positions */
+    /* Multiple particles with staggered animation */
     .particle:nth-child(1) {
       left: 10%;
       animation-duration: 12s;
@@ -91,7 +91,7 @@
       animation-delay: 5s;
     }
 
-    /* Title block for creator */
+    /* Title block for creator - fixed at top */
     .title-block {
       background: rgba(255, 111, 0, 0.9);
       text-align: center;
@@ -108,8 +108,10 @@
       border-radius: 0 0 20px 20px;
       animation: pulseGlow 3s ease-in-out infinite;
       user-select: none;
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
       z-index: 110;
     }
     @keyframes pulseGlow {
@@ -133,7 +135,7 @@
       text-align: center;
       box-shadow: 0 2px 10px rgba(255, 111, 0, 0.6);
       position: sticky;
-      top: 48px; /* below title block */
+      top: 60px; /* Adjusted for fixed title block height */
       z-index: 100;
     }
     header h1 {
@@ -168,7 +170,7 @@
       outline: none;
     }
 
-    /* Banner with glowing text */
+    /* Banner with reduced glow on text */
     .banner {
       background-image: url('bugatti-veyron-black.jpg'), url('lamborghini-gallardo-black.jpg');
       background-position: left center, right center;
@@ -191,11 +193,11 @@
       color: #ff6f00;
       font-size: 3.5rem;
       font-weight: 900;
+      /* Reduced glow intensity */
       text-shadow:
-        0 0 10px #ff6f00,
-        0 0 20px #ff6f00,
-        0 0 30px #ff6f00,
-        0 0 40px #ff6f00;
+        0 0 5px rgba(255, 111, 0, 0.5),
+        0 0 10px rgba(255, 111, 0, 0.35),
+        0 0 15px rgba(255, 111, 0, 0.25);
       background: rgba(0, 0, 0, 0.65);
       padding: 25px 50px;
       border-radius: 15px;
@@ -231,7 +233,7 @@
       box-shadow: 0 0 25px #ff6f00;
     }
 
-    /* New cars animation with black cars */
+    /* Cars animation with black cars */
     .cars-animation {
       margin-top: 40px;
       display: flex;
@@ -262,268 +264,108 @@
       }
     }
 
-    /* "Why Play?" section */
-    .why-play {
-      display: flex;
-      justify-content: space-around;
-      gap: 30px;
-      margin-top: 50px;
-      flex-wrap: wrap;
-      max-width: 1000px;
+    /* Game Features List */
+    .features-list {
+      margin: 20px 0 30px 20px;
+      padding-left: 20px;
+      color: #ffb300;
+      font-size: 1.1rem;
+    }
+    .features-list li {
+      margin-bottom: 10px;
+      list-style: none;
+      position: relative;
+      padding-left: 1.2em;
+    }
+    .features-list li::before {
+      content: '✔️';
+      position: absolute;
+      left: 0;
+      color: #ff6f00;
+    }
+
+    /* Download button */
+    .btn-download {
+      display: inline-block;
+      background: #ff6f00;
+      color: #fff;
+      padding: 14px 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 25px #ff6f00;
+      transition: background 0.3s ease, transform 0.3s ease;
+      margin-top: 20px;
+    }
+    .btn-download:hover,
+    .btn-download:focus {
+      background: #ffa040;
+      transform: scale(1.05);
+      outline: none;
+      box-shadow: 0 0 35px #ffa040;
+    }
+
+    /* Contact form styles with autofill */
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      border: 1px solid #555;
+      background: #222;
+      color: #fff;
+      font-size: 1.1rem;
+      resize: vertical;
+      transition: border-color 0.3s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #ff6f00;
+      outline: none;
+      box-shadow: 0 0 8px #ff6f00;
+      background: #1a1a1a;
+    }
+    .contact-form button {
+      margin-top: 8px;
+      padding: 14px 30px;
+      background: #ff6f00;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: 700;
+      box-shadow: 0 0 25px #ff6f00;
+      transition: background 0.3s ease, transform 0.3s ease;
+      width: 100%;
+      max-width: 320px;
+      display: block;
       margin-left: auto;
       margin-right: auto;
     }
-    .why-play .feature {
-      background: rgba(255, 111, 0, 0.1);
-      border-radius: 14px;
-      padding: 20px;
-      flex: 1 1 280px;
-      box-shadow: 0 0 20px rgba(255, 111, 0, 0.5);
-      text-align: center;
-      transition: background 0.3s ease;
-      cursor: default;
-    }
-    .why-play .feature:hover {
-      background: rgba(255, 111, 0, 0.3);
-      box-shadow: 0 0 30px #ff6f00;
-    }
-    .why-play .feature i {
-      font-size: 3rem;
-      color: #ff6f00;
-      margin-bottom: 15px;
-      text-shadow: 0 0 8px #ff6f00;
-    }
-    .why-play .feature h4 {
-      margin-bottom: 12px;
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
-    .why-play .feature p {
-      font-size: 1rem;
-      color: #ffd580;
-      line-height: 1.4;
-    }
-
-    /* Fan testimonials carousel */
-    .testimonials {
-      max-width: 800px;
-      margin: 60px auto 40px;
-      background: rgba(0, 0, 0, 0.75);
-      border-radius: 16px;
-      padding: 30px 40px;
-      box-shadow: 0 0 25px rgba(255, 111, 0, 0.6);
-      position: relative;
-      overflow: hidden;
-      color: #fff;
-      font-style: italic;
-      font-size: 1.2rem;
-      text-align: center;
-      min-height: 140px;
-    }
-    .testimonial {
-      opacity: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 80%;
-      transition: opacity 1s ease;
-    }
-    .testimonial.active {
-      opacity: 1;
-      position: relative;
-      transform: none;
-    }
-    .testimonial p {
-      margin-bottom: 15px;
-    }
-    .testimonial strong {
-      color: #ff6f00;
-      font-weight: 900;
-    }
-
-    /* Download button */
-    .btn-download {
-      display: inline-block;
-      background: #ff6f00;
-      color: #fff;
-      padding: 14px 30px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      border-radius: 30px;
-      text-decoration: none;
-      box-shadow: 0 0 25px #ff6f00;
-      transition: background 0.3s ease, transform 0.3s ease;
-      margin-top: 20px;
-    }
-    .btn-download:hover,
-    .btn-download:focus {
+    .contact-form button:hover,
+    .contact-form button:focus {
       background: #ffa040;
       transform: scale(1.05);
       outline: none;
       box-shadow: 0 0 35px #ffa040;
     }
 
-    /* New Game History Section */
-    .game-history {
-      max-width: 1000px;
-      margin: 60px auto;
-      background: rgba(0, 0, 0, 0.75);
-      border-radius: 16px;
-      padding: 30px 40px;
-      box-shadow: 0 0 30px #ff6f00;
-      color: #ffd580;
-    }
-    .game-history h3 {
-      color: #ff6f00;
-      margin-bottom: 20px;
-      font-size: 2rem;
-      text-align: center;
-      text-shadow: 0 0 10px #ff6f00;
-    }
-    .game-history p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 15px;
-      text-align: justify;
-    }
-
-    /* Top Cars Showcase */
-    .top-cars {
-      max-width: 1000px;
-      margin: 60px auto 80px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      background: rgba(0, 0, 0, 0.75);
-      padding: 30px 40px;
-      border-radius: 16px;
-      box-shadow: 0 0 30px #ff6f00;
-    }
-    .car-card {
-      background: rgba(255, 111, 0, 0.1);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(255, 111, 0, 0.5);
-      transition: background 0.3s ease;
-      cursor: default;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding-bottom: 20px;
-    }
-    .car-card:hover {
-      background: rgba(255, 111, 0, 0.3);
-      box-shadow: 0 0 35px #ff6f00;
-    }
-    .car-card img {
-      width: 100%;
-      max-width: 280px;
-      border-bottom: 4px solid #ff6f00;
-      border-radius: 14px 14px 0 0;
-      box-shadow: 0 0 15px #ff6f00;
-      transition: transform 0.3s ease;
-    }
-    .car-card img:hover {
-      transform: scale(1.05);
-    }
-    .car-card h4 {
-      margin-top: 15px;
-      font-size: 1.4rem;
-      color: #ff6f00;
-      font-weight: 700;
-      text-shadow: 0 0 8px #ff6f00;
-    }
-    .car-card p {
-      color: #ffd580;
-      padding: 0 15px;
-      font-size: 1rem;
-      line-height: 1.4;
-      margin-top: 8px;
-    }
-
-    /* FAQ Section */
-    .faq-section {
-      max-width: 1000px;
-      margin: 60px auto 80px;
-      background: rgba(0, 0, 0, 0.75);
-      border-radius: 16px;
-      padding: 30px 40px;
-      box-shadow: 0 0 30px #ff6f00;
-      color: #ffd580;
-    }
-    .faq-section h3 {
-      color: #ff6f00;
-      margin-bottom: 25px;
-      font-size: 2rem;
-      text-align: center;
-      text-shadow: 0 0 10px #ff6f00;
-    }
-    .faq-item {
-      margin-bottom: 18px;
-      border-bottom: 1px solid #ff6f00;
-      padding-bottom: 12px;
-    }
-    .faq-question {
-      font-weight: 700;
-      font-size: 1.1rem;
-      cursor: pointer;
-      position: relative;
-      padding-right: 25px;
-      user-select: none;
-      transition: color 0.3s;
-    }
-    .faq-question:hover,
-    .faq-question:focus {
-      color: #ffa040;
-      outline: none;
-    }
-    .faq-question::after {
-      content: '+';
-      position: absolute;
-      right: 0;
-      top: 0;
-      font-size: 1.5rem;
-      line-height: 1;
-      transition: transform 0.3s;
-    }
-    .faq-question.active::after {
-      content: '−';
-      transform: rotate(180deg);
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-      font-size: 1rem;
-      margin-top: 8px;
-      color: #ffd580cc;
-    }
-    .faq-answer.open {
-      max-height: 300px; /* enough to show content */
-    }
-
-    /* Download button */
-    .btn-download {
-      display: inline-block;
-      background: #ff6f00;
-      color: #fff;
-      padding: 14px 30px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      border-radius: 30px;
+    /* Social icons */
+    .social-icons a {
+      margin-right: 15px;
       text-decoration: none;
-      box-shadow: 0 0 25px #ff6f00;
-      transition: background 0.3s ease, transform 0.3s ease;
-      margin-top: 20px;
+      transition: transform 0.3s, color 0.3s;
+      display: inline-block;
     }
-    .btn-download:hover,
-    .btn-download:focus {
-      background: #ffa040;
-      transform: scale(1.05);
+    .social-icons a:hover,
+    .social-icons a:focus {
+      transform: scale(1.3);
+      color: #ff6f00 !important;
       outline: none;
-      box-shadow: 0 0 35px #ffa040;
+      text-shadow: 0 0 10px #ff6f00;
     }
 
     /* Footer styles */
@@ -628,68 +470,6 @@
       background-color: #ffa040;
     }
 
-    /* Contact form styles with autofill */
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 12px;
-      border-radius: 6px;
-      border: 1px solid #555;
-      background: #222;
-      color: #fff;
-      font-size: 1.1rem;
-      resize: vertical;
-      transition: border-color 0.3s;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: #ff6f00;
-      outline: none;
-      box-shadow: 0 0 8px #ff6f00;
-      background: #1a1a1a;
-    }
-    .contact-form button {
-      margin-top: 8px;
-      padding: 14px 30px;
-      background: #ff6f00;
-      color: #fff;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      font-weight: 700;
-      box-shadow: 0 0 25px #ff6f00;
-      transition: background 0.3s ease, transform 0.3s ease;
-      width: 100%;
-      max-width: 320px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .contact-form button:hover,
-    .contact-form button:focus {
-      background: #ffa040;
-      transform: scale(1.05);
-      outline: none;
-      box-shadow: 0 0 35px #ffa040;
-    }
-
-    /* Social icons */
-    .social-icons a {
-      margin-right: 15px;
-      text-decoration: none;
-      transition: transform 0.3s, color 0.3s;
-      display: inline-block;
-    }
-    .social-icons a:hover,
-    .social-icons a:focus {
-      transform: scale(1.3);
-      color: #ff6f00 !important;
-      outline: none;
-      text-shadow: 0 0 10px #ff6f00;
-    }
-
     /* Responsive */
     @media (max-width: 768px) {
       .banner h2 {
@@ -700,10 +480,6 @@
         font-size: 1rem;
         gap: 15px;
       }
-      .why-play {
-        flex-direction: column;
-        gap: 25px;
-      }
       .cars-animation img {
         width: 160px;
       }
@@ -713,9 +489,6 @@
       .footer-column {
         flex: 100%;
         margin-bottom: 25px;
-      }
-      .top-cars {
-        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -735,9 +508,6 @@
     <a href="#screenshots">Screenshots</a>
     <a href="#download">Download</a>
     <a href="#contact">Contact</a>
-    <a href="#game-history">Game History</a>
-    <a href="#top-cars">Top Cars</a>
-    <a href="#faq">FAQ</a>
   </nav>
 
   <div class="banner">
@@ -759,36 +529,12 @@
       <iframe
         width="560"
         height="315"
-        src="https://www.youtube.com/embed/8p9JH3j9x7o"
-        title="Need for Speed Most Wanted 2012 Official Trailer"
+        src="https://www.youtube.com/embed/hFUyTWQDYTo"
+        title="Need for Speed Most Wanted 2012 Official Gameplay Trailer"
         frameborder="0"
         allowfullscreen
         style="max-width: 100%; border-radius: 12px;"
       ></iframe>
-    </div>
-  </section>
-
-  <!-- Why Play Section -->
-  <section class="why-play" aria-label="Why Play Need for Speed Most Wanted 2012">
-    <div class="feature" tabindex="0" aria-label="Open World Racing">
-      <i class="fas fa-globe-americas" aria-hidden="true"></i>
-      <h4>Open World Racing</h4>
-      <p>Explore a vast city filled with shortcuts, jumps, and hidden paths.</p>
-    </div>
-    <div class="feature" tabindex="0" aria-label="Intense Police Pursuits">
-      <i class="fas fa-bolt" aria-hidden="true"></i>
-      <h4>Intense Police Pursuits</h4>
-      <p>Feel the adrenaline as you evade relentless police chases.</p>
-    </div>
-    <div class="feature" tabindex="0" aria-label="Customizable Cars">
-      <i class="fas fa-car" aria-hidden="true"></i>
-      <h4>Customizable Cars</h4>
-      <p>Modify your rides with upgrades and unique paint jobs.</p>
-    </div>
-    <div class="feature" tabindex="0" aria-label="Multiplayer Leaderboards">
-      <i class="fas fa-trophy" aria-hidden="true"></i>
-      <h4>Multiplayer Leaderboards</h4>
-      <p>Compete with friends and climb the ranks to become Most Wanted.</p>
     </div>
   </section>
 
@@ -817,7 +563,7 @@
       <img src="screenshot3.jpg" alt="Gameplay screenshot 3" />
     </div>
 
-    <!-- New cars animation with black cars from NFS Most Wanted 2012 -->
+    <!-- Cars animation with black cars -->
     <div class="cars-animation" aria-label="Animated black cars from Need for Speed Most Wanted 2012">
       <img src="bugatti-veyron-black.png" alt="Bugatti Veyron Grand Sport Vitesse Black" />
       <img src="lamborghini-gallardo-black.png" alt="Lamborghini Gallardo LP 570-4 Spyder Performante Black" />
@@ -832,84 +578,6 @@
     <a href="https://www.ea.com/games/need-for-speed/need-for-speed-most-wanted" target="_blank" class="btn-download" rel="noopener noreferrer" aria-label="Download Need for Speed Most Wanted 2012">
       Download Now
     </a>
-  </section>
-
-  <!-- Game History Section -->
-  <section class="game-history" id="game-history" aria-label="Game History of Need for Speed Most Wanted 2012">
-    <h3>Game History</h3>
-    <p>
-      Released in 2012, Need for Speed: Most Wanted brought a thrilling open-world street racing experience to fans worldwide. Developed by Criterion Games and published by Electronic Arts, it combined high-speed racing with intense police chases and deep car customization.
-    </p>
-    <p>
-      The game was praised for its seamless multiplayer integration, stunning graphics, and addictive gameplay. It remains a fan favorite for its balance of freedom and challenge, and its iconic car roster.
-    </p>
-  </section>
-
-  <!-- Top Cars Showcase -->
-  <section class="top-cars" id="top-cars" aria-label="Top Cars in Need for Speed Most Wanted 2012">
-    <div class="car-card" tabindex="0">
-      <img src="bugatti-veyron-black.png" alt="Bugatti Veyron Grand Sport Vitesse Black" />
-      <h4>Bugatti Veyron Grand Sport Vitesse</h4>
-      <p>One of the fastest and most coveted cars in the game, known for its insane speed and sleek design.</p>
-    </div>
-    <div class="car-card" tabindex="0">
-      <img src="lamborghini-gallardo-black.png" alt="Lamborghini Gallardo LP 570-4 Spyder Performante Black" />
-      <h4>Lamborghini Gallardo LP 570-4 Spyder Performante</h4>
-      <p>A perfect balance of power and agility, this car dominates the streets with style and speed.</p>
-    </div>
-    <div class="car-card" tabindex="0">
-      <img src="porsche-cayman-black.png" alt="Porsche Cayman Black" />
-      <h4>Porsche Cayman S</h4>
-      <p>Known for its sharp handling and smooth acceleration, ideal for tight city races and escapes.</p>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="faq-section" id="faq" aria-label="Frequently Asked Questions about Need for Speed Most Wanted 2012">
-    <h3>Frequently Asked Questions</h3>
-
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false" aria-controls="faq1" id="faq1-btn">
-        What platforms is the game available on?
-      </button>
-      <div class="faq-answer" id="faq1" role="region" aria-labelledby="faq1-btn">
-        <p>Need for Speed: Most Wanted 2012 is available on PC, Xbox 360, PlayStation 3, and Wii U.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false" aria-controls="faq2" id="faq2-btn">
-        Can I customize my cars?
-      </button>
-      <div class="faq-answer" id="faq2" role="region" aria-labelledby="faq2-btn">
-        <p>Yes! The game features extensive car customization options including paint, decals, performance upgrades, and more.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false" aria-controls="faq3" id="faq3-btn">
-        Is there multiplayer mode?
-      </button>
-      <div class="faq-answer" id="faq3" role="region" aria-labelledby="faq3-btn">
-        <p>Yes, you can compete with friends and other players online with seamless multiplayer integration.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Fan Testimonials Carousel -->
-  <section class="testimonials" aria-live="polite" aria-atomic="true">
-    <div class="testimonial active" tabindex="0">
-      <p>"This game defined my love for street racing and adrenaline-packed chases!"</p>
-      <strong>- Alex R.</strong>
-    </div>
-    <div class="testimonial" tabindex="0">
-      <p>"The open world and police pursuits keep me coming back every year."</p>
-      <strong>- Jamie L.</strong>
-    </div>
-    <div class="testimonial" tabindex="0">
-      <p>"Customizing cars and beating friends on leaderboards is so addictive."</p>
-      <strong>- Morgan K.</strong>
-    </div>
   </section>
 
   <footer>
@@ -1030,48 +698,6 @@
     document.getElementById('backToTop').onclick = function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-
-    // Simple testimonials carousel logic
-    const testimonials = document.querySelectorAll('.testimonial');
-    let currentTestimonial = 0;
-
-    function showTestimonial(index) {
-      testimonials.forEach((t, i) => {
-        t.classList.toggle('active', i === index);
-      });
-    }
-
-    setInterval(() => {
-      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-      showTestimonial(currentTestimonial);
-    }, 8000); // change testimonial every 8 seconds
-
-    // Initialize first testimonial
-    showTestimonial(currentTestimonial);
-
-    // FAQ toggle logic
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach((question) => {
-      question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        const isOpen = answer.classList.contains('open');
-
-        // Close all answers
-        document.querySelectorAll('.faq-answer').forEach((ans) => {
-          ans.classList.remove('open');
-        });
-        document.querySelectorAll('.faq-question').forEach((q) => {
-          q.classList.remove('active');
-          q.setAttribute('aria-expanded', 'false');
-        });
-
-        if (!isOpen) {
-          answer.classList.add('open');
-          question.classList.add('active');
-          question.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
   </script>
 </body>
 </html>
