@@ -4,13 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Need for Speed: Most Wanted 2012</title>
-  <!-- Font Awesome for social icons -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   />
   <style>
-    /* Reset and base */
+    /* Reset and base styles */
     * {
       margin: 0;
       padding: 0;
@@ -30,68 +29,13 @@
     body::before {
       content: '';
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background-color: rgba(0, 0, 0, 0.75);
       z-index: -1;
     }
 
-    /* Particle background effect */
-    @keyframes particleMove {
-      0% {
-        transform: translateY(0) translateX(0);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-100vh) translateX(20px);
-        opacity: 0;
-      }
-    }
-    .particle {
-      position: fixed;
-      bottom: 0;
-      width: 6px;
-      height: 6px;
-      background: #ff6f00;
-      border-radius: 50%;
-      opacity: 0.7;
-      animation: particleMove linear infinite;
-    }
-    /* Multiple particles with staggered animation */
-    .particle:nth-child(1) {
-      left: 10%;
-      animation-duration: 12s;
-      animation-delay: 0s;
-    }
-    .particle:nth-child(2) {
-      left: 25%;
-      animation-duration: 10s;
-      animation-delay: 3s;
-    }
-    .particle:nth-child(3) {
-      left: 40%;
-      animation-duration: 14s;
-      animation-delay: 1s;
-    }
-    .particle:nth-child(4) {
-      left: 55%;
-      animation-duration: 11s;
-      animation-delay: 4s;
-    }
-    .particle:nth-child(5) {
-      left: 70%;
-      animation-duration: 13s;
-      animation-delay: 2s;
-    }
-    .particle:nth-child(6) {
-      left: 85%;
-      animation-duration: 15s;
-      animation-delay: 5s;
-    }
-
-    /* Title block for creator - fixed at top */
+    /* Title block fixed at top */
     .title-block {
       background: rgba(255, 111, 0, 0.9);
       text-align: center;
@@ -109,8 +53,7 @@
       animation: pulseGlow 3s ease-in-out infinite;
       user-select: none;
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       z-index: 110;
     }
@@ -135,7 +78,7 @@
       text-align: center;
       box-shadow: 0 2px 10px rgba(255, 111, 0, 0.6);
       position: sticky;
-      top: 60px; /* Adjusted for fixed title block height */
+      top: 60px;
       z-index: 100;
     }
     header h1 {
@@ -170,7 +113,7 @@
       outline: none;
     }
 
-    /* Banner with reduced glow on text */
+    /* Banner with softer glow */
     .banner {
       background-image: url('bugatti-veyron-black.jpg'), url('lamborghini-gallardo-black.jpg');
       background-position: left center, right center;
@@ -181,19 +124,18 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      position: relative;
       margin-bottom: 40px;
       box-shadow: inset 0 0 80px 20px rgba(0, 0, 0, 0.6);
       border-radius: 20px;
       max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
+      position: relative;
     }
     .banner h2 {
       color: #ff6f00;
       font-size: 3.5rem;
       font-weight: 900;
-      /* Reduced glow intensity */
       text-shadow:
         0 0 5px rgba(255, 111, 0, 0.5),
         0 0 10px rgba(255, 111, 0, 0.35),
@@ -233,60 +175,101 @@
       box-shadow: 0 0 25px #ff6f00;
     }
 
-    /* Cars animation with black cars */
+    /* Cars animation container */
     .cars-animation {
       margin-top: 40px;
       display: flex;
       justify-content: center;
       gap: 30px;
       flex-wrap: wrap;
-      animation: slide-in 5s ease-in-out infinite alternate;
+      animation: slide-in 6s ease-in-out infinite alternate;
+      position: relative;
+      padding: 20px 0 60px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+      border-radius: 20px;
+      box-shadow: 0 0 40px #ff6f00 inset;
+      overflow: visible;
     }
+
+    /* Holographic shimmering effect on car images */
     .cars-animation img {
-      width: 220px;
-      border-radius: 14px;
-      transition: transform 0.3s ease, filter 0.3s ease;
-      filter: brightness(0.9) contrast(1.1);
-      box-shadow: 0 0 20px rgba(255, 111, 0, 0.7);
+      position: relative;
+      overflow: hidden;
       cursor: pointer;
+      border-radius: 16px;
+      transition: transform 0.4s ease;
+      filter: brightness(0.95) contrast(1.1);
+      box-shadow:
+        0 0 15px #ff6f00,
+        0 0 30px #ff6f00;
+      animation: bounce 2s ease-in-out infinite;
+      z-index: 5;
+    }
+    .cars-animation img::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.15) 25%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.15) 75%
+      );
+      transform: rotate(25deg);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+      border-radius: 16px;
+      z-index: 6;
     }
     .cars-animation img:hover {
-      transform: scale(1.12) rotate(2deg);
-      filter: brightness(1) contrast(1.3);
-      box-shadow: 0 0 35px #ff6f00;
+      transform: scale(1.1) rotate(2deg);
+      filter: brightness(1.1) contrast(1.3);
+      box-shadow:
+        0 0 40px #ff6f00,
+        0 0 70px #ffa040;
+      z-index: 10;
     }
+    .cars-animation img:hover::before {
+      opacity: 1;
+      animation: shimmer 2s linear infinite;
+    }
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%) rotate(25deg);
+      }
+      100% {
+        transform: translateX(100%) rotate(25deg);
+      }
+    }
+
+    /* Bounce effect for cars */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    /* Slide container left-right */
     @keyframes slide-in {
-      from {
-        transform: translateX(-20px);
+      0% {
+        transform: translateX(-25px);
       }
-      to {
-        transform: translateX(20px);
+      100% {
+        transform: translateX(25px);
       }
     }
 
-    /* Game Features List */
-    .features-list {
-      margin: 20px 0 30px 20px;
-      padding-left: 20px;
-      color: #ffb300;
-      font-size: 1.1rem;
-    }
-    .features-list li {
-      margin-bottom: 10px;
-      list-style: none;
-      position: relative;
-      padding-left: 1.2em;
-    }
-    .features-list li::before {
-      content: '✔️';
-      position: absolute;
-      left: 0;
-      color: #ff6f00;
-    }
-
-    /* Download button */
+    /* Liquid morph effect on download button */
     .btn-download {
-      display: inline-block;
+      position: relative;
+      overflow: hidden;
       background: #ff6f00;
       color: #fff;
       padding: 14px 30px;
@@ -295,15 +278,42 @@
       border-radius: 30px;
       text-decoration: none;
       box-shadow: 0 0 25px #ff6f00;
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: transform 0.3s ease, border-radius 0.3s ease;
       margin-top: 20px;
+      display: inline-block;
+      z-index: 1;
     }
-    .btn-download:hover,
-    .btn-download:focus {
-      background: #ffa040;
-      transform: scale(1.05);
+    .btn-download::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: conic-gradient(from 0deg, #ff6f00, #ffa040, #ff6f00);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 30px;
+      z-index: -1;
+    }
+    .btn-download:hover {
+      transform: rotate(5deg);
+      border-radius: 10px;
+    }
+    .btn-download:hover::before {
+      opacity: 1;
+    }
+
+    /* Glowing, scaling social media icons */
+    .social-icons a {
+      transition: transform 0.3s ease, color 0.3s ease;
+      color: inherit;
+      display: inline-block;
+      margin-right: 15px;
+    }
+    .social-icons a:hover,
+    .social-icons a:focus {
+      transform: scale(1.3);
+      color: #ff6f00 !important;
+      text-shadow: 0 0 10px #ff6f00;
       outline: none;
-      box-shadow: 0 0 35px #ffa040;
     }
 
     /* Contact form styles with autofill */
@@ -351,21 +361,6 @@
       transform: scale(1.05);
       outline: none;
       box-shadow: 0 0 35px #ffa040;
-    }
-
-    /* Social icons */
-    .social-icons a {
-      margin-right: 15px;
-      text-decoration: none;
-      transition: transform 0.3s, color 0.3s;
-      display: inline-block;
-    }
-    .social-icons a:hover,
-    .social-icons a:focus {
-      transform: scale(1.3);
-      color: #ff6f00 !important;
-      outline: none;
-      text-shadow: 0 0 10px #ff6f00;
     }
 
     /* Footer styles */
@@ -481,7 +476,8 @@
         gap: 15px;
       }
       .cars-animation img {
-        width: 160px;
+        width: 90vw;
+        max-width: 300px;
       }
       .contact-form button {
         max-width: 100%;
@@ -538,48 +534,71 @@
     </div>
   </section>
 
-  <section class="content">
+  <!-- Expanded Game Overview and Features -->
+  <section class="content" aria-label="Game Overview and Features">
+    <h3>About Need for Speed: Most Wanted (2012)</h3>
     <p>
-      Experience the thrill of the chase and the adrenaline of street racing
-      in <strong>Need for Speed: Most Wanted</strong>. Built for speed and
-      freedom in an open world filled with shortcuts, jumps, and destructible
-      environments.
+      <strong>Need for Speed: Most Wanted (2012)</strong> delivers an open-world street racing experience set in the sprawling city of <em>Fairhaven</em>. Unlike traditional racing games, you have the freedom to explore the city, discover hidden cars, and challenge the elite Most Wanted racers at your own pace.
+    </p>
+    <p>
+      The game features a dynamic police pursuit system where cops use smart tactics and roadblocks to stop you, creating intense high-speed chases. With the innovative <strong>EasyDrive</strong> system, you can seamlessly swap cars and upgrade performance mods on the fly without interrupting gameplay.
+    </p>
+    <p>
+      Unlock cars by finding “jack spots” around the city, allowing you to drive exotic, muscle, and street racer vehicles immediately. Customize your rides with upgrades like reinflatable tires, nitrous boosts, and reinforced chassis to gain an edge in races and pursuits.
     </p>
 
-    <!-- Game Features List -->
-    <h3 id="features">Game Features</h3>
+    <h4>Key Gameplay Features</h4>
     <ul class="features-list">
-      <li>🌎 Open World Racing</li>
-      <li>🚓 Intense Police Pursuits</li>
-      <li>🏆 Compete with Friends on Leaderboards</li>
-      <li>🚗 Huge Selection of Customizable Cars</li>
-      <li>🎮 Available on Multiple Platforms</li>
+      <li>🌆 Explore the open world of Fairhaven with diverse districts, highways, and hidden shortcuts.</li>
+      <li>🚓 Engage in thrilling police chases with realistic tactics and roadblocks.</li>
+      <li>🏁 Compete in multiple race types: Sprint, Circuit, Speed Runs, and Ambush Races.</li>
+      <li>🚗 Unlock and customize a wide variety of cars from the start by discovering jack spots.</li>
+      <li>🔥 Use EasyDrive to upgrade and switch cars instantly during gameplay.</li>
+      <li>📊 Autolog 2.0 tracks your progress and connects you with friends for competitive leaderboards.</li>
+      <li>🎯 Complete challenges like smashing billboards and triggering speed cameras for achievements and rewards.</li>
     </ul>
 
-    <h3 id="screenshots">Screenshots</h3>
+    <h4>The City of Fairhaven</h4>
+    <p>
+      Fairhaven is a vibrant city with a beach, industrial zones, and a sprawling highway system. The city’s design encourages exploration and high-speed thrills, with destructible environments and drive-through repair garages adding to the immersive experience.
+    </p>
+  </section>
+
+  <!-- Screenshots Section -->
+  <section class="content" id="screenshots">
+    <h3>Screenshots</h3>
     <div class="screenshots">
       <img src="screenshot1.jpg" alt="Gameplay screenshot 1" />
       <img src="screenshot2.jpg" alt="Gameplay screenshot 2" />
       <img src="screenshot3.jpg" alt="Gameplay screenshot 3" />
     </div>
+  </section>
 
-    <!-- Cars animation with black cars -->
-    <div class="cars-animation" aria-label="Animated black cars from Need for Speed Most Wanted 2012">
-      <img src="bugatti-veyron-black.png" alt="Bugatti Veyron Grand Sport Vitesse Black" />
-      <img src="lamborghini-gallardo-black.png" alt="Lamborghini Gallardo LP 570-4 Spyder Performante Black" />
-      <img src="porsche-cayman-black.png" alt="Porsche Cayman Black" />
+  <!-- Car Animation Section -->
+  <section class="content" aria-label="Featured Car Animation">
+    <h3>Featured Car Animation</h3>
+    <div class="cars-animation" aria-label="Animated cars from Need for Speed Most Wanted 2012">
+      <img src="https://static.wikia.nocookie.net/nfs/images/3/31/MW2012GallardoSpyderPerformante.jpg/revision/latest/scale-to-width-down/1000?cb=20130512111627&path-prefix=en"
+        alt="Lamborghini Gallardo LP 570-4 Spyder Performante Black from NFS MW 2012" />
+      <img src="https://img.goodfon.com/wallpaper/nbig/2/9b/badfon-need-for-speed-most-wanted-2911.webp"
+        alt="Need for Speed Most Wanted Black Car Poster" />
+      <img src="https://nfsmods.xyz/uploads/thumbnails/Furious7C-0ccd3e0681413548a66ecbdfa5d587ae.png"
+        alt="Furious 7 Car Mod for NFS" />
     </div>
+  </section>
 
-    <h3 id="download">Download</h3>
+  <!-- Download Section -->
+  <section class="content" id="download">
+    <h3>Download</h3>
     <p>
-      Available on PC, Xbox, and PlayStation. Visit the official EA website or
-      your preferred store to download.
+      Available on PC, Xbox, and PlayStation. Visit the official EA website or your preferred store to download.
     </p>
     <a href="https://www.ea.com/games/need-for-speed/need-for-speed-most-wanted" target="_blank" class="btn-download" rel="noopener noreferrer" aria-label="Download Need for Speed Most Wanted 2012">
       Download Now
     </a>
   </section>
 
+  <!-- Contact Section -->
   <footer>
     <div class="footer-content">
       <div class="footer-column">
