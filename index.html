@@ -118,12 +118,17 @@
     }
     .footer-links {
       margin-top: 30px;
-      text-align: center;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
       font-size: 0.9rem;
       color: #bbb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
     }
     .footer-links h4 {
-      margin-bottom: 10px;
       color: #ff6f00;
     }
     .footer-links ul {
@@ -139,6 +144,9 @@
     }
     .footer-links ul li a:hover {
       color: #fff;
+    }
+    select[name="language"] {
+      transform: rotate(180deg);
     }
     @media (max-width: 768px) {
       .banner h2 {
@@ -184,7 +192,7 @@
     <p>Available on PC, Xbox, and PlayStation. Visit the official EA website or your preferred store to download.</p>
 
     <h3 id="contact">Contact</h3>
-    <p><strong>Created by: Osho</strong><br><strong>Email:</strong> <a href="mailto:oshooyarekhua46@gmail.com">oshooyarekhua46@gmail.com</a><br><strong>Phone:</strong> 07052073239</p>
+    <p><strong>Created by: <strong>OSHO</strong></strong><br><strong>Email:</strong> <a href="mailto:oshooyarekhua46@gmail.com">oshooyarekhua46@gmail.com</a><br><strong>Phone:</strong> <strong>07052073239</strong></p>
   </section>
 
   <footer>
