@@ -413,159 +413,71 @@
       background-color: #ffa040;
     }
 
-    /* Latest News & Updates */
-    .news-list {
-      list-style: none;
-      padding-left: 0;
-      font-size: 1.1rem;
-      color: #ffb300;
-    }
-    .news-list li {
-      margin-bottom: 12px;
-      position: relative;
-      padding-left: 1.5em;
-      animation: fadeInUp 0.6s ease forwards;
-      opacity: 0;
-    }
-    .news-list li::before {
-      content: '📰';
-      position: absolute;
-      left: 0;
-      color: #ff6f00;
-    }
-    .news-list li:nth-child(1) { animation-delay: 0.1s; }
-    .news-list li:nth-child(2) { animation-delay: 0.3s; }
-    .news-list li:nth-child(3) { animation-delay: 0.5s; }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-    }
-    .news-list a {
-      color: #ffb300;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .news-list a:hover {
-      color: #fff;
-      text-shadow: 0 0 8px #ff6f00;
-    }
-
-    /* Leaderboard */
-    .leaderboard {
-      width: 100%;
-      border-collapse: collapse;
-      color: #ffb300;
-      font-size: 1.1rem;
-      box-shadow: 0 0 20px #ff6f00;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-top: 15px;
-    }
-    .leaderboard thead {
-      background: #ff6f00;
-      color: #111;
-      font-weight: 700;
-    }
-    .leaderboard th, .leaderboard td {
-      padding: 12px 20px;
-      text-align: center;
-    }
-    .leaderboard tbody tr:nth-child(odd) {
-      background: rgba(255, 111, 0, 0.15);
-    }
-    .leaderboard tbody tr:hover {
-      background: rgba(255, 111, 0, 0.35);
-      cursor: pointer;
-      color: #fff;
-      text-shadow: 0 0 6px #ff6f00;
-    }
-
-    /* Car Showcase */
-    .car-showcase {
-      display: flex;
-      gap: 25px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 15px;
-    }
-    .car-card {
+    /* Trivia Quiz Styles */
+    #quiz-container {
+      max-width: 700px;
+      margin: 20px auto;
       background: rgba(255, 111, 0, 0.15);
       border-radius: 16px;
       box-shadow: 0 0 25px #ff6f00;
-      padding: 15px;
-      width: 280px;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
+      padding: 25px;
+      color: #fff;
+      font-size: 1.2rem;
     }
-    .car-card img {
-      width: 100%;
-      border-radius: 12px;
+    .quiz-question {
+      font-weight: 900;
+      margin-bottom: 20px;
+      color: #ff6f00;
+      text-shadow: 0 0 8px #ff6f00;
+    }
+    .quiz-choices {
+      list-style: none;
+      padding-left: 0;
+    }
+    .quiz-choices li {
+      background: rgba(0,0,0,0.6);
       margin-bottom: 12px;
-      box-shadow: 0 0 15px #ff6f00;
-    }
-    .car-card:hover,
-    .car-card:focus {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px #ffa040;
-      outline: none;
-    }
-    .car-card h4 {
-      color: #ff6f00;
-      margin-bottom: 8px;
-    }
-    .car-card p {
-      font-weight: 600;
-      color: #ffbb33;
-    }
-
-    /* Testimonials */
-    .testimonials {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-      max-width: 800px;
-      margin: auto;
-      margin-top: 15px;
-    }
-    .testimonials blockquote {
-      background: rgba(255, 111, 0, 0.15);
-      border-left: 6px solid #ff6f00;
-      padding: 15px 25px;
-      font-style: italic;
-      color: #ffbb33;
-      box-shadow: 0 0 20px #ff6f00;
+      padding: 12px 20px;
       border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s;
     }
-    .testimonials footer {
-      margin-top: 10px;
+    .quiz-choices li:hover {
+      background: #ff6f00;
+      color: #111;
+    }
+    .quiz-choices li.selected {
+      background: #ffa040;
+      color: #111;
+    }
+    #next-btn {
+      margin-top: 20px;
+      padding: 12px 30px;
       font-weight: 700;
+      font-size: 1.1rem;
+      background: #ff6f00;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 20px #ff6f00;
+      transition: background 0.3s;
+    }
+    #next-btn:disabled {
+      background: #cc5200;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    #next-btn:hover:not(:disabled) {
+      background: #ffa040;
+    }
+    .quiz-result {
+      margin-top: 25px;
+      font-weight: 900;
+      font-size: 1.3rem;
       color: #ff6f00;
-      text-align: right;
-    }
-
-    /* Social Share */
-    .social-share {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 15px;
-    }
-    .social-share a {
-      color: #ff6f00;
-      transition: color 0.3s, transform 0.3s;
-      text-decoration: none;
-    }
-    .social-share a:hover {
-      color: #ffa040;
-      transform: scale(1.2);
+      text-align: center;
+      text-shadow: 0 0 10px #ff6f00;
     }
 
     /* Responsive */
@@ -578,8 +490,7 @@
         font-size: 1rem;
         gap: 15px;
       }
-      .cars-animation img,
-      .car-card {
+      .cars-animation img {
         width: 90vw;
         max-width: 280px;
       }
@@ -589,9 +500,6 @@
       .footer-column {
         flex: 100%;
         margin-bottom: 25px;
-      }
-      .car-showcase {
-        gap: 15px;
       }
     }
   </style>
@@ -610,6 +518,7 @@
     <a href="#screenshots">Screenshots</a>
     <a href="#download">Download</a>
     <a href="#contact">Contact</a>
+    <a href="#trivia">Trivia Quiz</a>
   </nav>
 
   <div class="banner">
@@ -660,81 +569,24 @@
     </p>
   </section>
 
-  <!-- Latest News & Updates -->
-  <section class="content" aria-label="Latest News and Updates">
-    <h3>Latest News & Updates</h3>
-    <ul class="news-list">
-      <li><a href="#" target="_blank" rel="noopener">New Car Mods Released for Most Wanted 2012!</a> - June 2025</li>
-      <li><a href="#" target="_blank" rel="noopener">Community Racing Tournament Announced</a> - May 2025</li>
-      <li><a href="#" target="_blank" rel="noopener">Exclusive Interview with Game Developers</a> - April 2025</li>
-    </ul>
-  </section>
-
-  <!-- Top Players Leaderboard -->
-  <section class="content" aria-label="Top Players Leaderboard">
-    <h3>Top Players Leaderboard</h3>
-    <table class="leaderboard">
-      <thead>
-        <tr><th>Rank</th><th>Player</th><th>Speed Points</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td>SpeedRacerX</td><td>12,450</td></tr>
-        <tr><td>2</td><td>DriftKing</td><td>11,980</td></tr>
-        <tr><td>3</td><td>TurboQueen</td><td>11,500</td></tr>
-        <tr><td>4</td><td>NightHawk</td><td>10,900</td></tr>
-        <tr><td>5</td><td>FlashFire</td><td>10,750</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- Custom Car Showcase -->
-  <section class="content" aria-label="Custom Car Showcase">
-    <h3>Custom Car Showcase</h3>
-    <div class="car-showcase">
-      <div class="car-card" tabindex="0">
-        <img src="https://static.wikia.nocookie.net/nfs/images/3/31/MW2012GallardoSpyderPerformante.jpg" alt="Lamborghini Gallardo" />
-        <h4>Lamborghini Gallardo LP 570-4 Spyder Performante</h4>
-        <p>Speed: 202 mph | Acceleration: 3.4s (0-60 mph)</p>
-      </div>
-      <div class="car-card" tabindex="0">
-        <img src="https://img.goodfon.com/wallpaper/nbig/2/9b/badfon-need-for-speed-most-wanted-2911.webp" alt="BMW M3 GTR" />
-        <h4>BMW M3 GTR</h4>
-        <p>Speed: 190 mph | Acceleration: 3.8s (0-60 mph)</p>
-      </div>
-      <div class="car-card" tabindex="0">
-        <img src="https://nfsmods.xyz/uploads/thumbnails/Furious7C-0ccd3e0681413548a66ecbdfa5d587ae.png" alt="Furious 7 Car Mod" />
-        <h4>Furious 7 Car Mod</h4>
-        <p>Speed: 210 mph | Acceleration: 3.2s (0-60 mph)</p>
-      </div>
+  <section class="content" id="screenshots">
+    <h3>Screenshots</h3>
+    <div class="screenshots">
+      <img src="screenshot1.jpg" alt="Gameplay screenshot 1" />
+      <img src="screenshot2.jpg" alt="Gameplay screenshot 2" />
+      <img src="screenshot3.jpg" alt="Gameplay screenshot 3" />
     </div>
   </section>
 
-  <!-- Community Testimonials -->
-  <section class="content" aria-label="Community Testimonials">
-    <h3>Community Testimonials</h3>
-    <div class="testimonials">
-      <blockquote>
-        <p>"The open world of Fairhaven is breathtaking! The police chases keep me on the edge of my seat."</p>
-        <footer>- RacerX99</footer>
-      </blockquote>
-      <blockquote>
-        <p>"Customizing my cars on the fly with EasyDrive is a game changer. Best racing game ever!"</p>
-        <footer>- DriftQueen</footer>
-      </blockquote>
-      <blockquote>
-        <p>"Love the community tournaments and leaderboards. Keeps me coming back for more."</p>
-        <footer>- Speedster</footer>
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- Social Media Sharing -->
-  <section class="content" aria-label="Share This Website">
-    <h3>Share This Website</h3>
-    <div class="social-share">
-      <a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20Need%20for%20Speed%20Most%20Wanted%202012%20fan%20site!&url=https://yourwebsite.com" target="_blank" aria-label="Share on Twitter"><i class="fab fa-twitter fa-2x"></i></a>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com" target="_blank" aria-label="Share on Facebook"><i class="fab fa-facebook fa-2x"></i></a>
-      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram fa-2x"></i></a>
+  <section class="content" aria-label="Featured Car Animation">
+    <h3>Featured Car Animation</h3>
+    <div class="cars-animation" aria-label="Animated cars from Need for Speed Most Wanted 2012">
+      <img src="https://static.wikia.nocookie.net/nfs/images/3/31/MW2012GallardoSpyderPerformante.jpg"
+        alt="Lamborghini Gallardo LP 570-4 Spyder Performante Black from NFS MW 2012" />
+      <img src="https://img.goodfon.com/wallpaper/nbig/2/9b/badfon-need-for-speed-most-wanted-2911.webp"
+        alt="Need for Speed Most Wanted Black Car Poster" />
+      <img src="https://nfsmods.xyz/uploads/thumbnails/Furious7C-0ccd3e0681413548a66ecbdfa5d587ae.png"
+        alt="Furious 7 Car Mod for NFS" />
     </div>
   </section>
 
@@ -746,6 +598,17 @@
     <a href="https://www.ea.com/games/need-for-speed/need-for-speed-most-wanted" target="_blank" class="btn-download" rel="noopener noreferrer" aria-label="Download Need for Speed Most Wanted 2012">
       Download Now
     </a>
+  </section>
+
+  <!-- Trivia Quiz Section -->
+  <section class="content" id="trivia" aria-label="Need for Speed Most Wanted 2012 Trivia Quiz">
+    <h3>Test Your Knowledge: Need for Speed Most Wanted 2012 Trivia</h3>
+    <div id="quiz-container">
+      <div id="question" class="quiz-question"></div>
+      <ul id="choices" class="quiz-choices"></ul>
+      <button id="next-btn" disabled>Next Question</button>
+      <div id="result" class="quiz-result"></div>
+    </div>
   </section>
 
   <footer id="contact">
@@ -805,15 +668,101 @@
   <button id="backToTop" title="Go to top" aria-label="Back to top">↑ Top</button>
 
   <script>
-    // Show the button when user scrolls down 200px
+    // Back to top button
     window.onscroll = function () {
       document.getElementById('backToTop').style.display =
         window.scrollY > 200 ? 'block' : 'none';
     };
-    // Scroll to top when button is clicked
     document.getElementById('backToTop').onclick = function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
+    // Trivia Quiz Script
+    const quizData = [
+      {
+        question: "In which fictional city is Need for Speed Most Wanted 2012 set?",
+        choices: ["Fairhaven", "Rockport", "Palmont", "Bayview"],
+        answer: "Fairhaven"
+      },
+      {
+        question: "What is the name of the system that allows you to swap cars on the fly?",
+        choices: ["EasyDrive", "QuickSwitch", "CarSwap", "DriveFlow"],
+        answer: "EasyDrive"
+      },
+      {
+        question: "Which car is NOT included in the final release but appeared in the beta?",
+        choices: ["Hummer H1 Alpha", "Lamborghini Gallardo", "BMW M3 GTR", "Audi R8 GT Spyder"],
+        answer: "Hummer H1 Alpha"
+      },
+      {
+        question: "How many jack spots are there to unlock cars instantly?",
+        choices: ["39", "25", "50", "10"],
+        answer: "39"
+      },
+      {
+        question: "What is the primary antagonist force chasing you in the game?",
+        choices: ["Police", "Rival Racers", "Military", "Street Gangs"],
+        answer: "Police"
+      }
+    ];
+
+    const questionEl = document.getElementById('question');
+    const choicesEl = document.getElementById('choices');
+    const nextBtn = document.getElementById('next-btn');
+    const resultEl = document.getElementById('result');
+
+    let currentQuestion = 0;
+    let selectedChoice = null;
+    let score = 0;
+
+    function loadQuestion() {
+      resultEl.textContent = '';
+      nextBtn.disabled = true;
+      selectedChoice = null;
+      const q = quizData[currentQuestion];
+      questionEl.textContent = q.question;
+      choicesEl.innerHTML = '';
+      q.choices.forEach(choice => {
+        const li = document.createElement('li');
+        li.textContent = choice;
+        li.tabIndex = 0;
+        li.addEventListener('click', () => selectChoice(li));
+        li.addEventListener('keypress', e => {
+          if (e.key === 'Enter' || e.key === ' ') selectChoice(li);
+        });
+        choicesEl.appendChild(li);
+      });
+    }
+
+    function selectChoice(li) {
+      if (selectedChoice) selectedChoice.classList.remove('selected');
+      li.classList.add('selected');
+      selectedChoice = li;
+      nextBtn.disabled = false;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (!selectedChoice) return;
+      const answer = quizData[currentQuestion].answer;
+      if (selectedChoice.textContent === answer) {
+        score++;
+      }
+      currentQuestion++;
+      if (currentQuestion < quizData.length) {
+        loadQuestion();
+      } else {
+        showResult();
+      }
+    });
+
+    function showResult() {
+      questionEl.textContent = 'Quiz Completed!';
+      choicesEl.innerHTML = '';
+      nextBtn.style.display = 'none';
+      resultEl.textContent = `You scored ${score} out of ${quizData.length}!`;
+    }
+
+    loadQuestion();
   </script>
 </body>
 </html>
